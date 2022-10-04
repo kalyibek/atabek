@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="content-box boxstyle-1 box-4">
+    <div class="zerogrid">
+        <div class="row wrap-box"><!--Start Box-->
+            <div class="header">
+                <div class="wrapper">
+                    <h2 class="color-yellow">Detail Page</h2>
+                    <hr class="line">
+                    <div class="intro">INAI.KG</div>
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="wrap-col item" style="margin-left: 290px; width: 600px">
+                    <div class="zoom-container">
+                        <img src="{{ show.img.url }}" />
+                    </div>
+                    <div class="item-content">
+                        <span>{{ show.title }}</span>
+                        <p>{{ show.description }}</p>
+                        <p>{{ show.img_type }}</p>
+                        <p>{{ show.add_time }}</p>
+                        <a class="button" href="{% url 'medshows_update' show.id %}">Edit</a>
+                        <a class="button" href="{% url 'medshows_delete' show.id %}">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

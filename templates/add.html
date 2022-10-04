@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<form action="{% url 'medshows_create' %}" method="post"  enctype="multipart/form-data">
+    {%csrf_token%}
+    <br>
+    {{ form.as_p }}
+    <input type="submit" value="Create new medical show." />
+</form>
+{% endblock %}

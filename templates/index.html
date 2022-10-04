@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="content-box boxstyle-1 box-4">
+    <div class="zerogrid">
+        <div class="row wrap-box"><!--Start Box-->
+            <div class="header">
+                <div class="wrapper">
+                    <h2 class="color-yellow">Medical imaging</h2>
+                    <hr class="line">
+                    <div class="intro">INAI.KG</div>
+                    <br>
+                    <a class="button" href="{% url 'medshows_create' %}">Create new.</a>
+                </div>
+            </div>
+            {% for show in shows %}
+            <div class="col-1">
+                <div class="wrap-col item" style="margin-left: 290px; width: 600px">
+                    <div class="zoom-container">
+                        <img src="{{ show.img.url }}" />
+                    </div>
+                    <div class="item-content">
+                        <span>{{ show.title }}</span>
+                        <p>{{ show.description }}</p>
+                        <a class="button" href="{% url 'medshows_detail' show.id %}">More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
